@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Bad Gyal Riri</title>
+</head>
+<style>
+    .content {
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
+    }
+    .background{
+        background-image: url('bkgr_imgc.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        
+    }
+    </style>
+
+<!--<body style="background-color: rgb(0, 50, 0);">-->
+<body class="background">
+    <div class="content">
+        <h1 id="h3r">Happy Monthversary !!! :) </h1>
+        <input id="keyInput" onkeypress="keyPressed()"></input>
+        <button onclick="srcButton_Click()" id="btn">Load Up video</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+    <iframe id="embedVideoPlayer" width="450" height="315" 
+    src="https://www.youtube.com/embed/4ZvJ9nPXvqI?si=qbc_NKQ17C1Yhgo6" 
+    hidden="hidden">
+    </iframe>
+    <br>
+    <button hidden="hidden" 
+    onclick="randomButton_Click()" id="randomButton">Generate Random Video</button>
+
+    <textarea id="t" rows="4" cols="60"></textarea>
+    <button ontouchstart="testTouch()">yooo</button>
+</div>
+
+</body>
+<script>
+    var frame = $("embedVideoPlayer");
+var title = $("h3r");
+var input = $("keyInput");
+var textArea= $("t");
+var btn =$("btn");
+btn.addEventListener("touchstart",srcButton_Click);
+input.addEventListener("keypress",function(e){
+    if(e.key==="Enter"){
+        e.preventDefault();
+        srcButton_Click();
+    }
+});
+
+function dictio(x) {
+    for(item of dict){
+       if(item.Key===x){
+           return item;
+       }
+    }
+   }
+function testTouch(){
+    textArea.innerHTML="you pressed the button";
+}
+function $(x) {
+    return document.getElementById(x);
+}
+function srcButton_Click() {
+    let key=input.value;
+    frame.removeAttribute("hidden");
+    let dict=dictio(key);
+    playVideo(dict);
+    //frame.src = dict.src;
+    //textArea.innerHTML=dict.transcript;
+}
+
+function pastLimit(){
+    let limitDate= new Date(2023,10,23);
+    var now= new Date();
+    return now>limitDate;
+}
+
+function randomButton_Click(){
+    let index= Math.floor(Math.random()*dict.length);
+    frame.removeAttribute("hidden");
+    frame.src=dict[index].src;
+    textArea.innerHTML=dict[index].transcript;
+
+}
+function playVideo(video){
+    frame.src=video.src;
+    textArea.innerHTML=video.transcript;
+    title.innerHTML=video.title;
+}
+
+if(pastLimit()){
+    $("randomButton").removeAttribute("hidden");
+}
+var dict = [
+    {
+        "Key": "31024",
+        "src": "https://www.youtube.com/embed/RQLbiSGyrIs?si=JXpMbiX0lwBcWx5t",
+        "title":"You're Gorgeous Babe :*)",
+        "transcript":"So Flooo la première fois que je t'ai vu au barbecue de la fete à Lyreille jme rapelle avoir été bouche bé. Ton sourire m'a semblé si pure. À mon insu, j'étais déjà sous ton charme. Mais à l'époque je ne pouvais m'imaginer tenter ma chance avec une telle femme. Ce n'est qu'à notre prochaine rencontre que j'ai pu trouver ma voix devant toi:) et je me rapelle avoir balbutié un truc à propos de comment on s'était déjà rencontré sans savoir comment poussé la conversation. And the rest is history but let just say that depuis le début te voir me laisse sans voix et pour éviter que ca ne paraîsse trop je m'empresse de raconter ce qui me vient en tête. Cela fait déjà un mois que l'on se fréquente et chaque fois que je te vois est comme la premiere fois: un moment qui s'éternise et duquel je ne veux sortir. Bref Floooo je ne vois arriver le jour où je me lasserai de ta beauté :) Passe une bonne journée bisous :) "
+    },
+    {
+        "Key": "31077",
+        "src": "https://www.youtube.com/embed/1M56pJMIB70?si=3SOXPQBUUFNasEgQ",
+        "title":"You have an amazing mindset babe :)",
+        "transcript":"Bon matin babe :) Jvoulais juste prendre un moment de ta journée pour souligner un ptit truc qui me fait capoter sur toi et ce ce depuis notre première conversation. j'ai toujours apprécié à quel point tu portais une attention particulière à ce qu l'on te dit. That first time we spoke, tu m'as questionné sur un tas de truc lorsqu'on parlait d'anime et tu essayais le plus possible de démontrer une ouverture d'esprit et de ne pas jugé prématurément. To this day ton approche face à une nouvelle situation ou meme simplement ta manière de recevoir une suggestion sans tomber dans la négativité m'épate so i know no matter life throws at you youll get through it babe :) Hope you have great day Love Pierre :)"
+    },
+    {
+        "Key":"31012",
+        "src":"https://www.youtube.com/embed/R602uJXEHJQ?si=LFzbCDmu4mXJ3fHO",
+        "title":"You're passion is contagious babe!!!",
+        "transcript":"Hey babe ! hope this second month of us being together is going well :) Jme suis dit que puisque l'on se voit un peu moins de ce temps-ci quoi de mieux que de commencer ta journée par un ptit flash back à nos premiers rapprochements :) La premiere fois que l'on a dansé ensemble, tu as su montrer à quel point tu appréciais le tout and honestly je ne saurais te dire à quel point ton enthousiasme m'inspire confiance lorsque l'on s'adonne à des activités ou que je t'en propose une. All i do for you comes from what you inspire in me :) i hope to hold you tight soon like you did at that halloween party and keep doing to this day : Bisous, Peter"
+    },
+    {
+        "Key":"31094",
+        "src":"https://www.youtube.com/embed/XwznM6CHHVo?si=70qnta-Q57ZALMkE",
+        "title":"Dont be shy babe :) XOXO",
+        "transcript":"A l'halloween chez les NK lorsque tu es arrivée jme suis dit que tu étais un peu réservée. Quand on se parlait j'ai remarqué comment tu semblais hésitante à divulguer certains trucs. Honnêtement it was cute et je me suis dit qu'afin d'apprendre à te connaître j'aurais à te montrer that i can be trusted. Et Lorsque tu as commencé à t'ouvrir à moi par la suite jme suis rendu compte de la chance inouïe que j'avais de faire partie des gens à qui tu te confies :) I love being that person for you. Tu as un coeur immense et je veux que tu sois consciente du fait que je raffole de tout moment ou tu décides de m'offir une petite vue sur ce qui est dans ta tête :) I cant wait to hear about your day, Bisous Peter :)"
+    },
+    {
+        "Key":"31028",
+        "src":"https://www.youtube.com/embed/0nW6NqOq9XU?si=RgW4SQufc0sp5v9l",
+        "title":"you're the Ying to my Yang ;)",
+        "transcript":"Hey Floooo :) je voulais prendre un moment pour te parler de comment je nous imagine ensemble. Comme je te l'ai déjà dit, je pense qu'on se complete bien :) Tu es l'optimisme qui contre mon pessimisme. Je nous vois vraiment comme un couple prêt à affronter any situation :) U and I against The world babe :). Je me tâcherai de couvrir les quelques lacunes que tu as de la même manière que tu sais t'y prendre pour mes nombreuses lacunes. Un peu comme un dynamic duo à la Eren et Mikasa (un peu moins tragique though hahahha.) C'est aussi ce que je souhaite pour nous: un ptit peu de chacun dans l'autre. Tu es le Ying à mon Yang Flooo et je ne saurais exprimer comment je me sens chanceux de la place que tu occupes dans ma vie. I cant wait to hear about your day :) Bisous, Peter. "
+    },
+    {
+        "Key":"31082",
+        "src":"https://www.youtube.com/embed/rwzWAgU7JlY?si=AbC1Y5_JVSwjcnU9",
+        "title":"Hey Cutie :*)",
+        "transcript":"Hey Floo je sais que les vidéos sont quand même longs so i wont take too much of your time today :) je voulais juste dire que j'adore nous voir ensemble :) et tu me manques déjà babe:(. Je passe mes journées à contempler mon fond d'écran babe :) im just saying we are really cute together Sur cette photo i can see just how much joy we have when we together. Mes 32 sont vraiment out la hahah J'aime comment le moindre souci semble disparaître lorsque je te parle comme s'il n'y avait rien d'autre qui comptait. Lorsque je suis avec toi ou en train de te parler, j'aime comment nos silences sont remplis de sens. On a pas besoin de faire quoi que ce soit pour être à l'aise l'un avec l'autre. Je nous trouve hot Flo :) I cant wait to see you again and take pictures with you !! Capturer ta beauté et notre joie en la présence de l'autre est toujours aussi satifaisant pour moi. Je prendrai pas plus de ton temps juste sache que quelque à Montréal quelqu'un m'entend probablement me vanter de how we have the best relationship. We truly are awesome and it starts with you :*) Bisous Peter"
+    },
+    {
+        "Key":"31030",
+        "src":"https://www.youtube.com/embed/zyfO0awKxtg?si=7MgChsXfGX1bXXqT",
+        "title":"You're my Muse :)",
+        "transcript":"Salut Flooooo :) je voulais juste que tu prennes un ptit moment pour t'exprimer à quel point tu comptes pour moi. Avant qu'on se parle je peux dire que je dénigrait souvent mes idées car je ne sentais pas qu'elles étaient valides hahaha. Mais peu à peu jme suis remis à des activités qui m'on autrefois passionné :) Je peux honnêtement dire que c'est grâce à toi. La manière que je me sens écouter par toi me met en confiance et c'est pour cela que l'on est rendu où nous en sommes. The way you inspire me to express myself ouvertement a permis ce cadeau que je te fais. Tu es ma muse et c'est pour plusieurs raisons . Je pense surtout que cest parce que je peine à trouver les mots pour te décrire que ce soit physiquement/spiritually or personality wise. Et c pour cela que je creuse les méninges afin de trouver une facon innovatrice de te dire ce que je ressens pour toi car c'est la toute première fois que ca m'arrive. Tu es donc ma Muse bébé :) bisous, Peter"
+    },
+    {
+        "Key":"31065",
+        "src":"https://www.youtube.com/embed/8alXRMDO3sE?si=tM-kUwEg8VFLODXV",
+        "title":"You gon kill it boo :)",
+        "transcript":"Hey Flooo :) aujourd'hui je voulais te faire part de ce que je souhaite pour toi à court/long terme. Je ne peux pas imaginer quelqu'un pour qui je souhaite plus de succès que toi. J'espère être là pour te voir accomplir tous tes objectifs et si je peux y mettre du mien pour t'aider à atteindre tes buts plus rapidement sache que je le ferais avec grand plaisir. Comme tu m'encourages à persévérer dans mes ambitions je te retourne la même énergie que ce soit au niveau scolaire carrière et projets personnels Flo you're the best and to my eyes you deserve the best. Bisous, Peter :)"
+    },
+    {
+        "Key":"31057",
+        "src":"https://www.youtube.com/embed/HEzljysYbmI?si=aB3bfoYlDza_kJ3I",
+        "title":"I wanna make you happy :)",
+        "transcript":"Hey Flooo :) j'espère que ta journée va bien. Si oui, j'espère que ce petit mot y ajoutera de la joie. Sinon espérons qu'il en crééra. Flooo je veux beacoup de choses dans ma vie . Mais honnêtement te voir sourire et savoir qu'il y a une profonde joie derrière ce beau sourir figure parmi les plus hauts éléments sur cette liste de désirs. C'est justement dans le but de t'apporter un bonheur plus constant que je me suis donné comme défi de t'apporter de la joie et ce tout au long du mois. Quand je saurai que ce bonheur est sincère, je pourrais m'efforcer à le maintenir car c ce que je veux être pour toi une source inépuisable de bon voeux et de joie qui ne se déverse que pour toi. Il est important de redonner ce que l'on reçoit et je ne peux etre plus heureux depuis que you are mine :) Bisous Peter :)."
+    },
+    {
+        "Key":"31079",
+        "src":"https://www.youtube.com/embed/6NT1TIQEf2I?si=sjPuFsr0XYTZB8-N",
+        "title":"Open up babe :)))",
+        "transcript":"Hey Flooo :) j'espère que tu te portes bien. Mais plus que tout ce que je souhaite c'est que tu comprennes que peu importe le mal qui t'affliges je suis là pour toi et prêt à n'importe quel moment à entendre parler de ce qui te tracasse ou de comment tu te sens en général. Ce que je veux plus que tout c'est que tu te sentes à l'aise à t'ouvrir à moi et m'exprimer comment tu te ressens. J'adore les moments ou ta carapace s'adoucit et tu dévoiles ce que tu cherchais tant bien que mal à cacher ou ne pas admettre à toi même. Mais je sais que je préfererais que tu délaisses cette coquille. Mais je ne suis pas inquiet je sais que tu le veux aussi alors je ne peux que te rassurer qu'il ny a rien que tu ne puisses me dire je ne te jugerai pas. je tâcherai tant bien que mal à t'aider à résoudre ce qui ne vas pas. Alors prends tes aises Bisous, Peter"
+    },
+    {
+        "Key":"31034",
+        "src":"https://www.youtube.com/embed/d5aCAx0VJGU?si=MSVPVi1PAK_591sU",
+        "title":"Slayyyyyy Bae ;)",
+        "transcript":"Hey Floooo :) Jvoulais juste que tu saches que tu es awesome :) et j'espère que cette petite capsule vidéo t'aideras à le réaliser. Car il n'y a rien de plus sexy que Confident Flo ;) En effet, le simple fait de savoir que tu es un personne exceptionnelle et de comporter as if you know est une chose qui ferait absolument mon bonheur. Et si en plus je pourrais contribuer à ce gain en confiance chez toi je serai le copain le plus heureux du monde. Donc en gros voilà ce que jte souhaite: I hope today is the first of may steps vers une confiance inébranlable en toi-même qui te permettra d'accomplir tes rêves les plus fous :). Hopefully you kill it today après avoir entendu ces mots de ma part :) j'ai hâte de t'entendre ce soir!! Bisous, Peter :)"
+    },
+    {
+        "Key":"31059",
+        "src":"https://www.youtube.com/embed/SovzNgmLP7k?si=3j5i8WbKTPc1kMl-",
+        "title":"PBUY- Asake",
+        "transcript":"Aaaaaah Flooo :) J'espère que tu vas bien. je voulais juste te parler de ce que je veux être pour toi et ce que je veux t'apporter. Honnêtement je sais que c'est parfois assez mouvementé chez toi et que cela can get to you so all i want to bring is you moments durant lesquels rien d'autre compte. I wanna be your peace car tu as fait la meme chose pour moi. Je promets de me mettre en oeuvre afin d'arriver à terrasser tous tes ennuis car tu es plus que ravissante when you dont have a worry in the world. Je sais que c'est un but digne d'un rêve mais c'est justement pour cela que je veux l'atteindre: a dreamy goal for the girl of my dreams :) Bisous Peter:))))"
+    },    
+    {
+        "Key":"31036",
+        "src":"https://www.youtube.com/embed/em1HsNs3dZA?si=OvQGlm0CpmTP5v33",
+        "title":"Sweet Dreams Babe :)",
+        "transcript":"Hey Flooo :) Hope you slept well last night :) jvoulais juste prendre le temps de te dire que dating you has been an amazing ride so far. J'ai passé beaucoup de temps à rêvasser à propos de my ideal boo. And honestly, you checked every boxe damn. Pour moi, je vois absolument pas how it could get better than this. You're beautiful, sweet, kindhearted. Être avec toi m'amène toujours un grand plaisir et confort. Je pense pas tu comprends à quel point être avec toi m'est surréel. Je me sens comme si un de mes rêves s'est déjà réalisé et quoi de réaliser celui-ci en premier car i feel like with you by my side il n'y a rien que je ne peux réaliser. youre amazing babe and I cant wait till we get to the point where we can spend everyday in each other's company. Malgré la distance, je peux honnêtement dire que you made my life better than i couldve ever dreamed :) Bisous Peter :)"
+    },
+    {
+        "Key":"31017",
+        "src":"https://www.youtube.com/embed/ccl0n9Fh6OY?si=BqwbnfDbfjxhj4N3",
+        "title":"Perfection en personne:))",
+        "transcript":"Hey Floo :) jvoulais juste prendre un ptit moment pour te dire que pour moi having a girlfriend doesnt get better than you. Tu me supportes in my dumb shit hahahah you always try and cheer me up when I'm feeling down you. No pressure but to me you're just perfect and i cant wait to see you again babe :) I hope you have an amzing day :). Bisous, Peter :)"
+    },
+    {
+        "Key":"31086",
+        "src":"https://www.youtube.com/embed/szmL2JLB_2E?si=2jA0UEhVwzAF2GtI",
+        "title":"Babe you make me smile",
+        "transcript":"Hey Floo Tu sais que je suis incapable de ne pas être heureux en ta présence ? You really are my happy place et je voulais te remercier pour tout le bonheur et la joie que tu continues à m'apporter babe. I dont know where i would be without you but i know id be sadder than i am today. J'espère que ces mots t'ont plu :) Bisous, Peter :)"
+    },
+    {
+        "Key":"31004",
+        "src":"https://www.youtube.com/embed/A6usuPU19og?si=IPcZ1stm8lQ5-1F4",
+        "title":"Thank you for Everything :)",
+        "transcript":"Hey Floooo :) jvoulais juste prendre un ptit temps pour te dire que ces derniers temps. You've been what keeps me going when i just feel like letting go. Quand une vague de stress menace de me submerger, j'ai été capable de rely on you to keep me from drowning :). Que ce soit en te voyant ou en recevant un message de ta part ou meme simplement en me remémorant ton visage :) Thats why I keep you on my phone as much as i can babe. You is my rock. ma base ma fondation :). So de la meme manière that you keep me going strong. J'espère que ces petits mots agiront comme le vent dans tes voiles aujourd'hui. :) Bisous Peter :) "
+    },
+    {
+        "Key":"31061",
+        "src":"https://www.youtube.com/embed/pSVzTDlEIss?si=ql_VYo-CuTTc6Okn",
+        "title":"I'll do right by you babe :)",
+        "transcript":"Hey Floooo :) depuis quelques mois déjà, on se parle on se fréquente bref youre the woman in my life et ce depuis mars genre. So il en va de soi qu'en apprenant à te connaître jme suis mis à trouver une autre motivation pour devenir une meilleur version de moi-même. Depuis que tu m'as hypnotisé, j'essaie de m'imaginer une vie avec toi et par la même occasion le genre d'homme que je devrais être selon moi afin de justifier ma présence à tes cotés. Tu es une femme sublime qui mérite tout ce que j'ai à t'offrir et même plus. Voilà pourquoi le simple fait de vouloir être avec toi me pousse à être plus exigent envers moi-même en terme du standard de vie que je dois atteindre lorsqu'un élan de paresse me frappe je m'en souvent en me disant que ce n'est pas en m'asseoyant sur tes lauriers que je serais fier d'être celui que tu appelles ton homme :) Bref tu me pousses constamment de par ta simple présence dans ma vie. Im trying be as awesome to you as you are to me babe:) Bisous Peter :)"
+    },
+    {
+        "Key":"31099",
+        "src":"https://www.youtube.com/embed/tLKo33Exig8?si=fAQyThLfcLLhGGuz",
+        "title":"What would i do without you :)?",
+        "transcript":"Heyyy Floooo :) je voulais juste prendre un ptit moment au début de ta journée pour te divulguer une des nombreuses facettes de ce que tu représentes pour moi. Honestly y'a beaucoup de moment où je me demande ce que je devrais dans une telle ou une autre situation et j'entends de plusieurs bouches à propos de comment je devrais agir et franchement je sais souvent pas où donner de la tête. Et c'est souvent dans ces moments où je me tourne vers toi et tu prends the time out of your day to listen to and understand me. Et honnêtement c'est quelque chose que j'adore chez toi :) tu viens toujours à mon aide avec une bouée de sauvetage lorsque je suis perdu et que les décisions semblent ardues. You keep finding new ways to look at things and it allows me to clear my mind and makes a decision. C'est une des nombreuses facettes de ta personalités that made me fall and keep falling for you babe :) Bisous, Peter :)"
+    },
+    {
+        "Key":"31000",
+        "src":"https://www.youtube.com/embed/Dx2v1M0zt3w?si=Wus69NADUl--v5nl",
+        "title":"Love hanging out with you :*",
+        "transcript":"Heyy Flooo:) jpense que c'est pas un secret que je peux être assez intense quand ca vient à ce que je ressens par rapport à une situation un statement you make or even when i think i need to apologize My bad about that btw ;) so une des chosese que tu fais que j'aime bien est que tu me neutralises bien Quand jme sens complètement à terre, you lift me up, when i get so hyped up that i forget about whats important, you remind me without downing me :). Avec toi keeping me in check jme sens comme si rien ne peut me choquer. Tu es comme un métronome pour moi, keeping rhythm and pace for me. Bref j'aime vraiment beaucoup comment jpeux aller crazzyyyy à un party ou même juste en FaceTime et switch up immediately une fois que je sens that you need a calmer me or me to listen to you. Keep Calm and carry on babe:) Bisous Peter :)"
+    },    
+    {
+        "Key":"31039",
+        "src":"https://www.youtube.com/embed/pzb0_Vc_zvY?si=t0J0lnGVt1xUjc0h",
+        "title":"They were for sure Jealous ;)",
+        "transcript":"Hey Flooo :) jvoulais juste faire un trip down memory lane avec toi en te parlant de how amazing it was to be with you for the first of July :) (Enjoy le flashback babe ;) )"
+    },
+    {
+        "Key":"31067",
+        "src":"https://www.youtube.com/embed/Rq2i_hS2sVE?si=sKJbzahFHTP-Igwf",
+        "title":"Kiss me Thru the Phone :*)",
+        "transcript":"Hey Flooo :) jvoulais juste faire un trip down memory lane avec toi en te parlant de how amazing it was to be in that phone booth with you:) (Enjoy le flashback babe ;) )"
+    },
+    {
+        "Key":"31045",
+        "src":"https://www.youtube.com/embed/KWmQe3pwSj0?si=89CjbWW5vPu3W-lb",
+        "title":"No distance is too far for you babe :)",
+        "transcript":"Hey Flooo :) jvoulais juste faire un trip down memory lane avec toi en te parlant de how amazing it was to be with you in Qc for the first time:) (Enjoy le flashback babe ;) )"
+    },
+    {
+        "Key":"31091",
+        "src":"https://www.youtube.com/embed/hzYBb4T4kr8?si=9fQaJo2fiia1Q1kd",
+        "title":"Kisses all over babe :)",
+        "transcript":"Hey Flooo :) jvoulais juste faire un trip down memory lane avec toi en te parlant de how amazing it was to kiss you for the first time:) (Enjoy le flashback babe ;) )"
+    },
+    {
+        "Key":"31097",
+        "src":"https://www.youtube.com/embed/CZfJk0gwjQk?si=8SkBPcwpxp7mXOAu",
+        "title":"Damn ! that bikini :O!!",
+        "transcript":"Hey Flooo :) jvoulais juste faire un trip down memory lane avec toi en te parlant de how amazing it was to be with you for AfroBeach :) (Enjoy le flashback babe ;) )"
+    },
+    {
+        "Key":"31048",
+        "src":"https://www.youtube.com/embed/OasQzjmRgJ8?si=GeSDXRLa2I9LnGyd",
+        "title":"I made the right choice babe :)",
+        "transcript":"Hey Flooo :) jvoulais juste faire un trip down memory lane avec toi en te parlant de how amazing it was to be with you for my Birthday:) (Enjoy le flashback babe ;) )"
+    },
+    {
+        "Key":"31008",
+        "src":"https://www.youtube.com/embed/QTrQ1vCam24?si=FLs94o0S6ohwUujd",
+        "title":"I wanted to get on that bus",
+        "transcript":"Hey Flooo :) jvoulais juste faire un trip down memory lane avec toi en te parlant de how amazing it was to be with you for a whole weekend :) (Enjoy le flashback babe ;) )"
+    },
+    {
+        "Key":"31006",
+        "src":"https://www.youtube.com/embed/8Jx87EiLFqU?si=4uPVs003vKD_uEck",
+        "title":"That Samba Costume Woow :)",
+        "transcript":"Hey Flooo :) jvoulais juste faire un trip down memory lane avec toi en te parlant de how amazing it was to cheer for you at MondoKarnaval:) (Enjoy le flashback babe ;) )"
+    },
+    {
+        "Key":"31015",
+        "src":"https://www.youtube.com/embed/7jzx6uOK2gY?si=aIq-vDKyKBrSTDBW",
+        "title":"Happy Monthversary!!!!",
+        "transcript":"Hey Flooo :) jvoulais juste faire un trip down memory lane avec toi en te parlant de how amazing it is to be dating you:) (Enjoy le flashback babe ;) )"
+    },
+    {
+        "Key":"31021",
+        "src":"https://www.youtube.com/embed/inw5bkSzPtw?si=MtKl5yTg_qXG2CPo",
+        "title":"T'es un agneau babe:)",
+        "transcript":"Hey babe heres a quick little compliment to start off your day :)"
+    },
+    {
+        "Key":"31088",
+        "src":"https://www.youtube.com/embed/u44aWiyTxT4?si=BljHr2u0SxwoUkBh",
+        "title":"You always find a way to make me laugh :)",
+        "transcript":"Hey babe heres a quick little compliment to start off your day :)"
+    },
+    {
+        "Key":"31066",
+        "src":"https://www.youtube.com/embed/kW4sDmnpucM?si=YHT5Wq73iBQ-VdII",
+        "title":"Bad Gyal Riri <3",
+        "transcript":""
+    },
+    {
+        "Key":"32000",
+        "src":"https://www.youtube.com/embed/4ZvJ9nPXvqI?si=qbc_NKQ17C1Yhgo6",
+        "title":"Hope you like your gift :*",
+        "transcript":"Enjoy :)"
+    }    
+]
+</script>
+</html>
