@@ -42,6 +42,9 @@
     onclick="randomButton_Click()" id="randomButton">Generate Random Video</button>
 
     <textarea id="t" rows="4" cols="60"></textarea>
+    <br>
+    <br>
+    <h1 id="datingTime" style="color: crimson;">I've been blessed for </h1>
 </div>
 
 </body>
@@ -51,6 +54,10 @@ var title = $("h3r");
 var input = $("keyInput");
 var textArea= $("t");
 var btn =$("btn");
+var dating=$("datingTime");
+var anniversary= new Date(2023,8,23);
+var datingInit=dating.innerHTML;
+dateTime();
 btn.addEventListener("touchstart",srcButton_Click);
 input.addEventListener("keypress",function(e){
     if(e.key==="Enter"){
@@ -59,6 +66,12 @@ input.addEventListener("keypress",function(e){
     }
 });
 
+function dateTime(){
+var today=new Date();
+var td=new Date(today.getFullYear(),today.getMonth(),today.getDate());
+var days=Math.round((td-anniversary)/(1000*60*60*24));
+dating.innerHTML=datingInit+days+" days :)";
+}
 function dictio(x) {
     for(item of dict){
        if(item.Key===x){
