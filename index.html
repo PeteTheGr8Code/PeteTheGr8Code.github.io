@@ -46,6 +46,11 @@
     <br>
     <br>
     <h1 id="datingTime" style="color: crimson;">I've been blessed for </h1>
+    
+    <button onclick="dateTime('days')">Days</button>
+    <button onclick="dateTime('weeks')">Weeks</button>
+    <button onclick="dateTime('months')">Months</button>
+    <button onclick="dateTime('years')">Years</button>
 </div>
 
 </body>
@@ -58,7 +63,7 @@ var btn =$("btn");
 var dating=$("datingTime");
 var anniversary= new Date(2023,8,23);
 var datingInit=dating.innerHTML;
-dateTime();
+dateTime("days");
 btn.addEventListener("touchstart",srcButton_Click);
 input.addEventListener("keypress",function(e){
     if(e.key==="Enter"){
@@ -67,12 +72,34 @@ input.addEventListener("keypress",function(e){
     }
 });
 
-function dateTime(){
+function dateTime(x){
 var today=new Date();
 var td=new Date(today.getFullYear(),today.getMonth(),today.getDate());
-var days=Math.round((td-anniversary)/(1000*60*60*24));
-dating.innerHTML=datingInit+days+" days :)";
+var diff=td-anniversary;
+var total=Math.round((diff)/(1000*60*60*24));
+var divider=1;
+var text=(""+x);
+let result=text.substring(0,text.lastIndexOf("s"));
+switch(x){
+    case "weeks":
+        divider=7;
+        
+        break;
+    case "months":
+        divider=365/12;
+        break;
+    case "years":
+        divider=365.25;
+        break;
 }
+total=Math.floor(total/divider);
+if(total>0)
+dating.innerHTML=datingInit+total+" "+x+" :)";
+else{
+    dating.innerHTML=datingInit+"less than a "+result+" :)";
+}
+}
+
 function dictio(x) {
     for(item of dict){
        if(item.Key===x){
